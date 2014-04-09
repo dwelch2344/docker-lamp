@@ -1,7 +1,9 @@
 #### Get setup
+```
 brew cask install virtualbox
 brew install docker boot2docker
 boot2docker init
+```
 
 #### Forward some ports! vm must be powered off
 ```
@@ -27,10 +29,11 @@ boot2docker ssh "sudo modprobe vboxsf && mkdir -p $HOME && sudo mount -t vboxsf 
 ```
 
 #### Build the image and copy anything in the mysql folder over
+````
 export IMAGE=dwelch2344/lamp
 docker build -t $IMAGE .
 docker run -d -v $(pwd)/mysql:/tmp/mysql $IMAGE /bin/bash -c "cp -rp /var/lib/mysql/* /tmp/mysql"
-
+```
 
 #### Run it!
-docker run -i -t -d -v $(pwd)/www:/var/www -p 49080:80 -p 49306:3306 $IMAGE
+`docker run -i -t -d -v $(pwd)/www:/var/www -p 49080:80 -p 49306:3306 $IMAGE`
