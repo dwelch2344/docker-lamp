@@ -9,6 +9,10 @@
         #Order allow,deny allow from all
     </Directory>
 
+    <IfModule mpm_itk_module>
+      AssignUserId root root
+    </IfModule>
+
     # Possible values include: debug, info, notice, warn, error, crit, # alert, emerg.
     LogLevel warn
     ErrorLog ${APACHE_LOG_DIR}/error.log

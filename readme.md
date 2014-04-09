@@ -33,4 +33,4 @@ docker run -d -v $(pwd)/mysql:/tmp/mysql $IMAGE /bin/bash -c "cp -rp /var/lib/my
 
 
 #### Run it!
-docker run -i -t -v $(pwd)/www:/var/www:rw -p 49080:80 -p 43360:3360 $IMAGE /bin/bash
+docker run -i -t -d -v $(pwd)/www:/var/www -p 49080:80 -p 49306:3306 $IMAGE
